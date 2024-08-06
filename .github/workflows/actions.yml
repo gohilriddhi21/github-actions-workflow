@@ -3,6 +3,7 @@ name: Test GitHub actions
 on:
   schedule:
     - cron: '0 0 * * 1' # At 00:00 on Monday
+  workflow_dispatch:
 
 jobs:
   build:
