@@ -25,7 +25,7 @@ jobs:
           
       - name: execute py script # run main.py
         env:
-          SOME_SECRET: ${{ secrets.var_1 }}
+          VAR_1: ${{ vars.var_1 }}
         run: python src/main.py
           
       - name: commit files

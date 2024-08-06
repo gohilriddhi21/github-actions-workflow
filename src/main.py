@@ -16,14 +16,14 @@ logger_file_handler.setFormatter(formatter)
 logger.addHandler(logger_file_handler)
 
 try:
-    SOME_SECRET = os.environ["var_1"]
+    VAR_1 = os.environ["VAR_1"]
 except KeyError:
     SOME_SECRET = "Token not available!"
     logger.info("Token not available!")
     raise
 
 if __name__ == "__main__":
-    logger.info(f"Token value: {SOME_SECRET}")
+    logger.info(f"Token value: {VAR_1}")
     r = requests.get('https://weather.talkpython.fm/api/weather/?city=Berlin&country=DE')
     if r.status_code == 200:
         data = r.json()
