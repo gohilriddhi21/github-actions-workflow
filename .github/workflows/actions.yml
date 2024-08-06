@@ -24,8 +24,8 @@ jobs:
           pip install -r requirements.txt
           
       - name: execute py script # run main.py
-        # env:
-        #   VAR_1: ${{ vars.var_1 }}
+        env:
+          VAR_1: ${{ vars.var_1 }}
         run: |
           echo "Variable 1: $VAR_1"
           python src/main.py
