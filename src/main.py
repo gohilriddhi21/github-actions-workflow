@@ -18,7 +18,7 @@ logger.addHandler(logger_file_handler)
 try:
     VAR_1 = os.environ["VAR_1"]
 except KeyError:
-    SOME_SECRET = "Token not available!"
+    VAR_1 = "Token not available!"
     logger.info("Token not available!")
     raise
 
