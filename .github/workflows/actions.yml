@@ -41,3 +41,10 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: main 
+      
+      - name: Run PR Sync Manager
+        uses: gohilriddhi21/github-custom-actions/action-1@main
+        env:
+          WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
+        with:
+          VAR_1: ${{ vars.VAR_1 }}
