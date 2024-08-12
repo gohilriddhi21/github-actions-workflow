@@ -42,9 +42,9 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: main 
       
-      - name: Run PR Sync Manager
+      - name: Run Action 1 from another repository
         uses: gohilriddhi21/github-custom-actions/action-1@main
         env:
-          WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
+          weather-api-key: ${{ secrets.WEATHER_API_KEY }}
         with:
-          VAR_1: ${{ vars.VAR_1 }}
+          var-1: ${{ vars.VAR_1 }}
