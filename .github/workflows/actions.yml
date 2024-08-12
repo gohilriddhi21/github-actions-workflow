@@ -43,7 +43,7 @@ jobs:
           branch: main 
       
       - name: Run Action 1 from another repository
-        uses: github-custom-actions/action-1@main
+        uses: gohilriddhi21/github-custom-actions/action-1@main
         env:
           weather-api-key: ${{ secrets.WEATHER_API_KEY }}
         with:
