@@ -23,6 +23,7 @@ class TestWeatherScript(unittest.TestCase):
         logger = Mock()
         api_key = get_api_key(logger)
         self.assertEqual(api_key, "test_key")
+        logger.info.assert_called_once_with("API KEY set successfully.")
 
     def test_api_endpoint_reachability(self):
         """Test if the weather API endpoint is reachable."""
