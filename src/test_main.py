@@ -8,11 +8,15 @@ from main import setup_logger, get_api_key
 
 class TestWeatherScript(unittest.TestCase):
 
-    def test_setup_logger(self):
+    @patch("logging.getLogger")
+    def test_setup_logger(self, mock_get_logger):
         """Test if logger is set up correctly."""
+        mock_logger = Mock()
+        mock_get_logger.return_value = mock_logger
         file_name = "test_status.log"
         logger = setup_logger(file_name)
         self.assertTrue(os.path.isfile(file_name))
+        self.assertEqual(logger, mock_logger)
 
     @patch.dict(os.environ, {"WEATHER_API_KEY": "test_key"})
     def test_api_key_set(self):
