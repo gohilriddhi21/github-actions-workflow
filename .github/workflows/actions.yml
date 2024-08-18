@@ -50,6 +50,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: main 
 
+      # Custom Actions
       - name: Run Action 1 from another repository
         uses: gohilriddhi21/github-custom-actions/action-1@main
         env:
