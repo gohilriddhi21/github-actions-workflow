@@ -29,7 +29,7 @@ class TestWeatherScript(unittest.TestCase):
         try:
             response = requests.get("http://api.weatherapi.com/")
             html = response.content.decode("utf-8").strip()
-            soup = BeautifulSoup(html, "html.parser")
+            soup = BeautifulSoup(html,"html.parser")
             message = soup.text.replace("\ufeff", "").strip()
             self.assertEqual(response.status_code, 200)
             self.assertEqual(message, "All OK")
