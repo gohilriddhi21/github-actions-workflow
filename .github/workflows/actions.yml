@@ -25,7 +25,7 @@ jobs:
       
       - name: Lint with flake8
         run: |
-          black src/
+          flake8 src/
       
       - name: Run Tests
         run: |
