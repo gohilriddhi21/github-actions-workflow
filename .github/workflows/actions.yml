@@ -9,7 +9,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-
       - name: Checkout repo content
         uses: actions/checkout@v4
 
@@ -23,22 +22,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       
-      # - name:  Analysing the code with flake8
-      #   run: |
-      #     flake8 src/
-      - name: Lint with Ruff
+      - name: Analysing the code with pylint
         run: |
-          pip install ruff
-          ruff check --output-format=github src/
+          pylint $(git ls-files '*.py')
         continue-on-error: true
 
-      # - name: Run Tests
-      #   run: |
-      #     python -m unittest discover src
       - name: Test with pytest
         run: |
-          pip install pytest pytest-cov
-          pytest src/test_main.py --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
+          pytest -v -rA test/
           
       - name: Execute Python script
         run: |

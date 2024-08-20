@@ -3,6 +3,8 @@ import os
 import requests
 from bs4 import BeautifulSoup
 from unittest.mock import patch, Mock
+import sys
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
 from main import setup_logger, get_api_key
 
 
