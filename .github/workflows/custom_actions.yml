@@ -1,0 +1,27 @@
+name: Demo for Custom Actions
+
+on:
+  # schedule:
+  #   - cron: '0 0 * * 1' # At 00:00 on Monday
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo content
+        uses: actions/checkout@v4
+
+      - name: Run Action 1 from another repository
+        uses: gohilriddhi21/github-custom-actions/action-1@main
+        env:
+          weather-api-key: ${{ secrets.WEATHER_API_KEY }}
+        with:
+          var-1: ${{ vars.VAR_1 }}
+
+      - name: Run Action 2 from another repository
+        uses: gohilriddhi21/github-custom-actions/action-2@main
+        env:
+          weather-api-key: ${{ secrets.WEATHER_API_KEY }}
+        with:
+          var-1: ${{ vars.VAR_1 }}
