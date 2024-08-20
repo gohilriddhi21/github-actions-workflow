@@ -1,8 +1,6 @@
 name: Separate Jobs Workflow
 
 on:
-  # schedule:
-  #   - cron: '0 0 * * 1' # At 00:00 on Monday
   workflow_dispatch:
 
 jobs:
