@@ -1,14 +1,15 @@
+"""Unit tests for the weather script in the main module."""
 import unittest
+from unittest.mock import patch, Mock
 import os
+import sys
 import requests
 from bs4 import BeautifulSoup
-from unittest.mock import patch, Mock
-import sys
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
-from main import setup_logger, get_api_key
-
+sys.path.append("src")
+from main import setup_logger, get_api_key #pylint: disable=wrong-import-position,import-error
 
 class TestWeatherScript(unittest.TestCase):
+    """Test cases for the weather script functions."""
 
     @patch("logging.getLogger")
     def test_setup_logger(self, mock_get_logger):
@@ -30,7 +31,7 @@ class TestWeatherScript(unittest.TestCase):
     def test_api_endpoint_reachability(self):
         """Test if the weather API endpoint is reachable."""
         try:
-            response = requests.get("http://api.weatherapi.com/")
+            response = requests.get("http://api.weatherapi.com/", timeout=10)
             html = response.content.decode("utf-8").strip()
             soup = BeautifulSoup(html, "html.parser")
             message = soup.text.replace("\ufeff", "").strip()
