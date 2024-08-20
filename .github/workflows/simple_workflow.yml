@@ -30,14 +30,6 @@ jobs:
       - name: Test with pytest
         run: |
           pytest -v -rA test/
-
-      - name: Wemake Python Stylguide
-        uses: wemake-services/wemake-python-styleguide@0.13.4
-        continue-on-error: true
-        with:
-          reporter: 'github-pr-review'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
       - name: Execute Python script
         run: |
