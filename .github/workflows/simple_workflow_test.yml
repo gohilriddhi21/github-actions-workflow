@@ -28,7 +28,7 @@ jobs:
         with:
           python-version: '3.x'
   test:
-    needs: test
+    needs: lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo content
