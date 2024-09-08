@@ -19,5 +19,5 @@ jobs:
         with:
           owner: ${{ github.repository_owner }}
           repo: ${{ github.event.repository.name }}
-          pr_number: ${{ github.event.number }}
+          pr_number: ${{ github.event.issue.number }}
           token: ${{ secrets.GITHUB_TOKEN }}
