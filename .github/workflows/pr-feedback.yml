@@ -1,11 +1,11 @@
 name: Get PR Feedback
 
 on:
-    workflow_dispatch:
-#   issue_comment:
-#     types: [created, edited]
-#   pull_request:
-#     types: [opened, reopened, edited]
+  workflow_dispatch:
+  issue_comment:
+    types: [created, edited]
+  pull_request:
+    types: [opened, reopened, edited]
 
 jobs:
   feedback:
