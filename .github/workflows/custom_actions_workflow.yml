@@ -9,19 +9,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run Action 1 from another repository
-        uses: gohilriddhi21/github-custom-actions/action-2@main
+        uses: gohilriddhi21/github-custom-actions/action-3@main
         env:
           weather-api-key: ${{ secrets.WEATHER_API_KEY }}
-        with:
-          var-1: ${{ vars.VAR_1 }}
 
   custom-action-2:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
     - name: Run Action 2 from another repository
-      uses: gohilriddhi21/github-custom-actions/action-2@main
+      uses: gohilriddhi21/github-custom-actions/action-3@main
       env:
         weather-api-key: ${{ secrets.WEATHER_API_KEY }}
-      with:
-        var-1: ${{ vars.VAR_1 }}
