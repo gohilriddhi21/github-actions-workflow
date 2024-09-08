@@ -1,4 +1,4 @@
-name: Simple JavaScript Custom Action Workflow
+name: JavaScript Custom Action Workflow
 
 on:
     workflow_dispatch:
