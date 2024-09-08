@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run Action 1 from another repository
-        uses: gohilriddhi21/github-custom-actions/action-1@main
+        uses: gohilriddhi21/github-custom-actions/action-2@main
         env:
           weather-api-key: ${{ secrets.WEATHER_API_KEY }}
         with:
