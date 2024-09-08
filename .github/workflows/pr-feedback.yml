@@ -10,11 +10,21 @@ jobs:
   feedback:
     name: PR feedback
     runs-on: ubuntu-latest
+    permissions:
+        contents: write
+        pull-requests: write
+        repository-projects: write
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+      - name: Get PR Title and Issue Number
+        run: |
+            pr_title=$(git log -n 1 --format='%s' HEAD)
+            issue_number=$(git log -n 1 --format='%s' HEAD | grep -o '[#][0-9]+' | cut -d '#' -f 2)
+            echo "PR Title: $pr_title"
+            echo "Issue Number: $issue_number"
       - name: Switch to the PR branch
         run: gh pr checkout ${{ github.event.issue.number }}
         env:
