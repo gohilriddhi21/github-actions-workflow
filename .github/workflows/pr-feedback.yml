@@ -17,12 +17,12 @@ jobs:
         with:
           fetch-depth: 0
       - name: Switch to the PR branch
-        run: gh pr checkout ${{ github.event.issue.number }}
+        run: gh pr checkout ${{ github.event.number }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Get the PR Title with the Issue number
         run: |
-          echo "PR_TITLE=$(gh api -H "Accept: application/vnd.github+json" /repos/${{ github.repository }}/pulls/${{ github.event.issue.number }} --jq '.title')" >> $GITHUB_ENV 
+          echo "PR_TITLE=$(gh api -H "Accept: application/vnd.github+json" /repos/${{ github.repository }}/pulls/${{ github.event.number }} --jq '.title')" >> $GITHUB_ENV 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Run PR Feedback
