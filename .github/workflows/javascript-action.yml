@@ -1,21 +1,23 @@
-name: PR metadata annotation
+name: Javascript Action
 
-on:
+on: 
   issue_comment:
     types: [created, edited]
   pull_request:
-    types: [opened, reopened, edited]
-  workflow_dispatch:
+    types: [opened, reopened, edited, synchronize]
 
 jobs:
   annotate-pr:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
     name: Annotates pull request with metadata
     steps:
       - name: Annotate PR
-        uses: link-/PR-metadata-action@main
+        uses: gohilriddhi21/github-custom-actions/javascript-action@main
         with:
           owner: ${{ github.repository_owner }}
           repo: ${{ github.event.repository.name }}
-          pr_number: ${{ github.event.number }}
+          pr_number: ${{ github.event.issue.number }}
           token: ${{ secrets.GITHUB_TOKEN }}
