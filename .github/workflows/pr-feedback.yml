@@ -1,31 +1,31 @@
-name: Get PR Feedback
+# name: Get PR Feedback
 
-on:
-  issue_comment:
-    types: [created, edited]
-  pull_request:
-    types: [opened, reopened, edited]
+# on:
+#   issue_comment:
+#     types: [created, edited]
+#   pull_request:
+#     types: [opened, reopened, edited]
 
-jobs:
-  feedback:
-    name: PR feedback
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Switch to the PR branch
-        run: gh pr checkout ${{ github.event.issue.number }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Get the PR Title with the Issue number
-        run: |
-          echo "PR_TITLE=$(gh api -H "Accept: application/vnd.github+json" /repos/${{ github.repository }}/pulls/${{ github.event.issue.number }} --jq '.title')" >> $GITHUB_ENV 
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Run PR Feedback
-        uses: gohilriddhi21/github-custom-actions/pr-feedback@main
-        with:
-            pr-title: $PR_TITLE
-            issue-number: ${{ github.event.issue.number }}
+# jobs:
+#   feedback:
+#     name: PR feedback
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Check out repository
+#         uses: actions/checkout@v4
+#         with:
+#           fetch-depth: 0
+#       - name: Switch to the PR branch
+#         run: gh pr checkout ${{ github.event.issue.number }}
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#       - name: Get the PR Title with the Issue number
+#         run: |
+#           echo "PR_TITLE=$(gh api -H "Accept: application/vnd.github+json" /repos/${{ github.repository }}/pulls/${{ github.event.issue.number }} --jq '.title')" >> $GITHUB_ENV 
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#       - name: Run PR Feedback
+#         uses: gohilriddhi21/github-custom-actions/pr-feedback@main
+#         with:
+#             pr-title: $PR_TITLE
+#             issue-number: ${{ github.event.issue.number }}
