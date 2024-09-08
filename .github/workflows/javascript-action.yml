@@ -1,8 +1,11 @@
 name: PR metadata annotation
 
-on: 
+on:
+  issue_comment:
+    types: [created, edited]
   pull_request:
-    types: [opened, reopened, synchronize]
+    types: [opened, reopened, edited]
+  workflow_dispatch:
 
 jobs:
 
