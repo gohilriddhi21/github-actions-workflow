@@ -11,4 +11,4 @@ jobs:
       - name: Run Basic Custom Action from another repository
         uses: gohilriddhi21/github-custom-actions/basic-custom-action@main
         with:
-          var-1: ${{ vars.VAR_1 }}
+          message: ${{ vars.MY_MESSAGE }}
