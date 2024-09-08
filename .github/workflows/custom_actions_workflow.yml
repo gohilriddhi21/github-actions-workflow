@@ -10,5 +10,5 @@ jobs:
       - uses: actions/checkout@v4
       - name: Run Basic Custom Action from another repository
         uses: gohilriddhi21/github-custom-actions/basic-custom-action@main
-        env:
+        with:
           var-1: ${{ vars.VAR_1 }}
