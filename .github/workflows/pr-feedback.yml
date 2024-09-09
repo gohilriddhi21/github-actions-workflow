@@ -33,4 +33,3 @@ jobs:
           repo-url: ${{ github.repository }}
           issue-number: ${{ github.event.number }}
           ai-studio-api-key: ${{ secrets.AI_STUDIO_API_KEY }}
-
