@@ -33,3 +33,4 @@ jobs:
         with:
           project-id: ${{ secrets.PROJECT_ID }}
           location: ${{ secrets.LOCATION }}
+          google-application-credentials: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
