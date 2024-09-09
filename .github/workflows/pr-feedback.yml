@@ -34,4 +34,3 @@ jobs:
           project-id: ${{ secrets.PROJECT_ID }}
           location: ${{ secrets.LOCATION }}
           google-api-key: ${{ secrets.GOOGLE_API_KEY }}
-          google-application-credentials: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
