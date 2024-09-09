@@ -12,13 +12,13 @@ jobs:
       - uses: actions/checkout@v4
       - name: Switch to the PR branch
         run: gh pr checkout ${{ github.event.number }}
-        # env:
-        #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Get the PR Title with the Issue number
         run: |
           echo "PR_TITLE=$(gh api -H "Accept: application/vnd.github+json" /repos/${{ github.repository }}/pulls/${{ github.event.number }} --jq '.title')" >> $GITHUB_ENV 
-        # env:
-        #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Run PR Feedback
         uses: gohilriddhi21/github-custom-actions/pr-feedback@main
         with:
