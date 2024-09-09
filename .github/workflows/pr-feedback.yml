@@ -33,5 +33,5 @@ jobs:
           location: ${{ secrets.LOCATION }}
           git-token: ${{ secrets.GIT_TOKEN }}
           repo-url: ${{ github.repository }}
-          issue-number: ${{ github.event.issue.number }}
+          issue-number: ${{ github.event.number }}
           ai-studio-api-key: ${{ secrets.AI_STUDIO_API_KEY }}
