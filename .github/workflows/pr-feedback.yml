@@ -8,6 +8,10 @@ jobs:
   feedback:
     name: PR feedback
     runs-on: ubuntu-latest
+    permissions:
+        contents: write
+        pull-requests: write
+        repository-projects: write
     steps:
       - uses: actions/checkout@v4
       - name: Switch to the PR branch
