@@ -32,5 +32,5 @@ jobs:
       - name: Run PR Feedback
         uses: gohilriddhi21/github-custom-actions/pr-feedback@main
         with:
-            pr-title: $PR_TITLE
-            issue-number: ${{ github.event.issue.number }}
+            project-id: ${{ secrets.PROJECT_ID }}
+            location: ${{ secrets.LOCATION }}
