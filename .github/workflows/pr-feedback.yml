@@ -9,6 +9,7 @@ on:
 jobs:
   feedback:
     name: PR feedback
+    if: ${{ github.event.issue.pull_request && github.actor != 'gh-bot' }}
     runs-on: ubuntu-latest
     permissions:
         contents: write
