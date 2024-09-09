@@ -1,15 +1,12 @@
 name: Get PR Feedback
 
 on:
-  issue_comment:
-    types: [created, edited]
   pull_request:
-    types: [opened, reopened, edited]
+    types: [opened, reopened, edited, synchronize]
 
 jobs:
   feedback:
     name: PR feedback
-    if: ${{ github.event.issue.pull_request && github.actor != 'gh-bot-test' }}
     runs-on: ubuntu-latest
     permissions:
         contents: write
@@ -34,7 +31,7 @@ jobs:
         with:
           project-id: ${{ secrets.PROJECT_ID }}
           location: ${{ secrets.LOCATION }}
-          git-token: ${{ secrets.SECOND_GIT_TOKEN }}
+          git-token: ${{ secrets.GIT_TOKEN }}
           repo-url: ${{ github.repository }}
           issue-number: ${{ github.event.issue.number }}
           ai-studio-api-key: ${{ secrets.AI_STUDIO_API_KEY }}
